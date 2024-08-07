@@ -6,7 +6,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
   ResponsiveContainer,
 } from "recharts";
 import { Typography, Box, FormControl, Select, MenuItem } from "@mui/material";
