@@ -1,16 +1,7 @@
 // src/components/Dashboard.tsx
 
 import React from "react";
-import {
-  Box,
-  Grid,
-  Paper,
-  Typography,
-  IconButton,
-  CircularProgress,
-  Badge,
-} from "@mui/material";
-
+import { Box, Grid, Paper, Typography, CircularProgress } from "@mui/material";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,21 +11,15 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import {
-  AccountCircle,
-  Notifications,
-  Email,
-  Search,
-} from "@mui/icons-material";
 import Menu from "./Menu";
 import ActivityChart from "./ActivityChart";
 import Sidebar from "./Sidebar";
 import RecentOrders from "./RecentOrders";
 import CustomerFeedback from "./CustomerFeedback";
 import { PiBasketFill } from "react-icons/pi";
-import { TbShoppingBagCheck } from "react-icons/tb";
-import { TbShoppingBagX } from "react-icons/tb";
+import { TbShoppingBagCheck, TbShoppingBagX } from "react-icons/tb";
 import { FaCircleDollarToSlot } from "react-icons/fa6";
+import Header from "./Header";
 
 ChartJS.register(
   CategoryScale,
@@ -49,6 +34,7 @@ const Dashboard: React.FC = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <Sidebar />
+      <Header />
       <Box
         sx={{
           flexGrow: 1,
@@ -58,43 +44,13 @@ const Dashboard: React.FC = () => {
           overflow: "auto",
         }}
       >
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          mb={3}
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            marginTop: "25px",
+          }}
         >
-          <Box display="flex" alignItems="center">
-            <Search style={{ color: "white", marginRight: 8 }} />
-            <input
-              type="text"
-              placeholder="Search..."
-              style={{
-                backgroundColor: "transparent",
-                border: "none",
-                color: "white",
-              }}
-            />
-          </Box>
-          <Box display="flex" alignItems="center">
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <Email style={{ color: "white" }} />
-              </Badge>
-            </IconButton>
-            <IconButton>
-              <Notifications style={{ color: "white" }} />
-            </IconButton>
-            <IconButton>
-              <AccountCircle style={{ color: "white" }} />
-            </IconButton>
-          </Box>
-        </Box>
-        <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={2}>
             <Paper
               sx={{
